@@ -1,0 +1,88 @@
+<ion-view title="Contacts">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-plus" ng-click="newContact()"></button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="contact in contacts" class="item-avatar" ng-href="#/contact/{{contact._id}}">
+                <img src="img/people.png">
+                {{contact.name}}
+                <p>{{contact.phone | tel }} &nbsp {{contact.email}}</p>
+
+            </ion-item>
+
+
+        </ion-list>
+
+    </ion-content>
+
+    <div class="tabs tabs-icon-top">
+        <a class="tab-item">
+            <i class="icon ion-home"></i>
+            Home
+        </a>
+        <a class="tab-item">
+            <i class="icon ion-star"></i>
+            Favorites
+        </a>
+        <a class="tab-item" ng-click="updateContact(contacts)">
+            <i class="icon ion-refresh"></i>
+            Refresh
+        </a>
+    </div>
+
+
+</ion-view>
+
+
+
+<script id="new-contact.html" type="text/ng-template">
+
+    <div class="modal">
+
+        <!-- Modal header bar -->
+        <ion-header-bar class="bar-secondary">
+            <h1 class="title">New Task</h1>
+            <button class="button button-clear button-positive" ng-click="closeNewContact()">Cancel</button>
+        </ion-header-bar>
+
+        <!-- Modal content area -->
+        <ion-content>
+
+            <form ng-submit="createContact(form)">
+                <div class="list">
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Full Name</span>
+                        <input type="text" placeholder="Input your name" ng-model="form.name">
+                    </label>
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Cell Phone</span>
+                        <input type="text" placeholder="Input your phone number" ng-model="form.phone">
+                    </label>
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Email</span>
+                        <input type="text" placeholder="Input your email" ng-model="form.email">
+                    </label>
+
+
+
+                </div>
+                <div class="padding">
+                    <button type="submit" class="button button-block button-calm">Create Contact</button>
+                </div>
+            </form>
+
+
+        </ion-content>
+
+    </div>
+
+</script>

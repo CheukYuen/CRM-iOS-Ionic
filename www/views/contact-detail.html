@@ -1,0 +1,34 @@
+
+
+<ion-view title="Contact">
+    <ion-content >
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/people.png">
+
+                <h2> {{contact.name}}</h2>
+
+                <p>Customer Title</p>
+                <!--<p>{{employee.title}}</p>-->
+            </div>
+
+
+            <a class="item item-icon-left" href="tel:{{contact.phone}}"><i class="icon ion-ios7-telephone"></i>Call
+                Office<p>{{contact.phone| tel}}</p></a>
+
+            <a class="item item-icon-left" href="sms:{{contact.phone}}"><i class="icon ion-chatbox-working"></i>SMS
+                <p>{{contact.phone| tel}}</p></a>
+
+            <a class="item item-icon-left" href="mailto:{{contact.email}}"><i class="icon ion-ios7-email"></i>Email<p>
+                {{contact.email}}</p></a>
+        </div>
+
+
+        <div class="padding">
+            <a  class="button button-block button-assertive"  ng-click="deleteCurrentContact(contact._id) " ng-href="#/contact">Delete Contact</a>
+        </div>
+
+    </ion-content>
+
+</ion-view>
